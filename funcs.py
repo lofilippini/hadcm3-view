@@ -16,7 +16,6 @@ wlong_mesh, wlat_mesh = np.meshgrid(longitudes, latwind)
 coords = np.column_stack((long_mesh.ravel(), lat_mesh.ravel()))
 coords_wind = np.column_stack((wlong_mesh.ravel(), wlat_mesh.ravel()))
 
-
 def conv(file):
     var = []
     climate = {}
@@ -37,7 +36,7 @@ def conv(file):
                         var.append(float(item))
                     except: 
                         break          
-
+    
     monthly_var = []
 
     for i in range(0, len(var), int(len(var)/len(month))):
@@ -57,5 +56,4 @@ def conv(file):
         df['Longitude'] = coords[:,0]
         df['Latitude'] = coords[:,1]
 
-
-    return mat, df, len(var)  
+    return mat, df
